@@ -15,9 +15,7 @@ RUN wstool init . && \
 
 # update apt-get because osrf image clears this cache and download deps
 RUN apt-get update && \
-    apt-get install -y \
-        python-catkin-tools \
-        less && \
+    apt-get install -y python-catkin-tools less wget && \
     rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} && \
     rm -rf /var/lib/apt/lists/*
 
