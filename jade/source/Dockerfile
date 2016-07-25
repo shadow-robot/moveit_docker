@@ -14,9 +14,13 @@ RUN wstool init . && \
     wstool update
 
 # update apt-get because osrf image clears this cache and download deps
-RUN apt-get update && \
-    apt-get install -y python-catkin-tools less wget && \
-    rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} && \
+RUN apt-get -qq update && \
+    apt-get -qq install -y \
+        python-catkin-tools  \
+        less \
+        wget && \
+    rosdep update && \
+    rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
     rm -rf /var/lib/apt/lists/*
 
 # HACK, replacing shell with bash for later docker build commands
@@ -25,5 +29,6 @@ RUN mv /bin/sh /bin/sh-old && \
 
 # build repo
 WORKDIR $CATKIN_WS
+ENV TERM xterm
 RUN source /ros_entrypoint.sh && \
     catkin build --no-status
