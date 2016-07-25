@@ -45,9 +45,9 @@ For each ROS distribution there are 3 images, built on top of a standard [osrf/r
 
 ### Standard Images
 
- - [moveit-indigo-source](https://github.com/moveit/moveit_docker/blob/master/indigo/source/Dockerfile)
- - [moveit-indigo-release](https://github.com/moveit/moveit_docker/blob/master/indigo/release/Dockerfile)
- - [moveit-jade-source](https://github.com/moveit/moveit_docker/blob/master/jade/source/Dockerfile)
- - [moveit-jade-release](https://github.com/moveit/moveit_docker/blob/master/jade/release/Dockerfile)
- - [moveit-kinetic-source](https://github.com/moveit/moveit_docker/blob/master/kinetic/source/Dockerfile)
- - [moveit-kinetic-release](https://github.com/moveit/moveit_docker/blob/master/jade/release/Dockerfile)
+ - [moveit-indigo-source](https://github.com/ros-planning/moveit_docker/blob/master/indigo/source/Dockerfile)
+ - [moveit-indigo-release](https://github.com/ros-planning/moveit_docker/blob/master/indigo/release/Dockerfile)
+ - [moveit-jade-source](https://github.com/ros-planning/moveit_docker/blob/master/jade/source/Dockerfile)
+ - [moveit-jade-release](https://github.com/ros-planning/moveit_docker/blob/master/jade/release/Dockerfile)
+ - [moveit-kinetic-source](https://github.com/ros-planning/moveit_docker/blob/master/kinetic/source/Dockerfile)
+ - [moveit-kinetic-release](https://github.com/ros-planning/moveit_docker/blob/master/jade/release/Dockerfile)
