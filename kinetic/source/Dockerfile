@@ -30,5 +30,6 @@ RUN mv /bin/sh /bin/sh-old && \
 # build repo
 WORKDIR $CATKIN_WS
 ENV TERM xterm
+ENV PYTHONIOENCODING UTF-8
 RUN source /ros_entrypoint.sh && \
     catkin build --no-status
