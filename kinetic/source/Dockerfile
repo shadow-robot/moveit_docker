@@ -15,9 +15,9 @@ RUN wstool init . && \
 
 # update apt-get because osrf image clears this cache and download deps
 RUN apt-get update && \
-    apt-get install -y python-catkin-tools less wget sudo && \  # TODO: sudo is bad practice to install but needed by rosdep?
+    apt-get install -y python-catkin-tools less wget &&
     rosdep update && \
-    rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} && \
+    rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
     rm -rf /var/lib/apt/lists/*
 
 # HACK, replacing shell with bash for later docker build commands
