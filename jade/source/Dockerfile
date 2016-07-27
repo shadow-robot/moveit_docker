@@ -18,6 +18,11 @@ RUN apt-get -qq update && \
     apt-get -qq install -y \
         python-catkin-tools  \
         less \
+        ssh \
+        emacs \
+        git-core \
+        bash-completion \
+        tree \
         wget && \
     rosdep update && \
     rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
