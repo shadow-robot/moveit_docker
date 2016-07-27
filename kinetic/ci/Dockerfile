@@ -18,6 +18,13 @@ RUN apt-get -qq update &&\
         python-rosdep \
         python-wstool \
         python-pyassimp \
+        libqtgui4 \
+        libccd-dev \
+        libqglviewer2-qt4 \
+        libqt4-opengl-dev \
+        libqt4-dev \
+        libqt4-opengl \
+        libqglviewer-dev-qt4 \
         ros-$ROS_DISTRO-rosbash \
         ros-$ROS_DISTRO-rospack && \
     rm -rf /var/lib/apt/lists/*
