@@ -25,7 +25,7 @@ RUN apt-get -qq update && \
         tree \
         wget && \
     rosdep update && \
-    rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
+    #rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
     rm -rf /var/lib/apt/lists/*
 
 # HACK, replacing shell with bash for later docker build commands
@@ -36,5 +36,5 @@ RUN mv /bin/sh /bin/sh-old && \
 WORKDIR $CATKIN_WS
 ENV TERM xterm
 ENV PYTHONIOENCODING UTF-8
-RUN source /ros_entrypoint.sh && \
-    catkin build --no-status
+RUN source /ros_entrypoint.sh #&& \
+#    catkin build --no-status
