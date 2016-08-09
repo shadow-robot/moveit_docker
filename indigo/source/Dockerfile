@@ -10,7 +10,7 @@ WORKDIR $CATKIN_WS/src
 
 # download moveit source
 RUN wstool init . && \
-    wstool merge https://raw.github.com/ros-planning/moveit_docs/${ROS_DISTRO}-devel/moveit.rosinstall && \
+    wstool merge https://raw.githubusercontent.com/ros-planning/moveit/${ROS_DISTRO}-devel/moveit.rosinstall && \
     wstool update
 
 # update apt-get because osrf image clears this cache and download deps
@@ -23,6 +23,7 @@ RUN apt-get -qq update && \
         git-core \
         bash-completion \
         tree \
+        touch \
         wget && \
     rosdep update && \
     rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
