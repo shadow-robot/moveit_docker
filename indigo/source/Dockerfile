@@ -23,7 +23,6 @@ RUN apt-get -qq update && \
         git-core \
         bash-completion \
         tree \
-        touch \
         wget && \
     rosdep update && \
     rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
