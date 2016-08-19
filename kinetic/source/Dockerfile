@@ -28,6 +28,15 @@ RUN apt-get -qq update && \
     #rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO} --as-root=apt:false && \
     rm -rf /var/lib/apt/lists/*
 
+# installing mongocxx driver for the warehouse
+RUN git clone -b 26compat https://github.com/mongodb/mongo-cxx-driver.git && \
+    apt-get update -qq && \
+    apt-get -qq install -y scons && \
+    cd mongo-cxx-driver && \
+    scons --use-system-boost --prefix=/usr/local/ --full --disable-warnings-as-errors && \
+    scons install && \
+    rm -rf /var/lib/apt/lists/*
+
 # HACK, replacing shell with bash for later docker build commands
 RUN mv /bin/sh /bin/sh-old && \
     ln -s /bin/bash /bin/sh
